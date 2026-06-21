@@ -190,7 +190,7 @@ const schools = [
     name: "University of Music and Performing Arts Vienna",
     nameCn: "维也纳音乐与表演艺术大学 MDW",
     country: "奥地利",
-    lang: "german", region: "Europe",
+    institutionType: "Conservatoire", lang: "german", region: "Europe",
     city: "Vienna",
     ranking: 19,
     rankingLabel: "QS Music 2026 Top 20",
@@ -216,7 +216,6 @@ const schools = [
       ["MDW Tuition", "https://www.mdw.ac.at/studiencenter/en/tuition-fee/"]
     ]
   },
-  { id: "hkapa", name: "Hong Kong Academy for Performing Arts", nameCn: "香港演艺学院 HKAPA", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 26, tuitionUsd: 14000, tuitionLabel: "非本地生学费约 HKD 120k+ / 年，按课程核对", ielts: 6, toefl: 79, majors: commonMajors, url: "https://www.hkapa.edu/study" },
   {
     id: "berklee",
     name: "Berklee College of Music",
@@ -504,41 +503,41 @@ function addSchool(seed) {
 }
 
 [
-  { id: "cnsmdp", lang: "french", name: "Conservatoire national supérieur de musique et de danse de Paris", nameCn: "巴黎国立高等音乐舞蹈学院 CNSMDP", country: "法国", region: "Europe", city: "Paris", ranking: 6, tuitionUsd: 1200, tuitionLabel: "法国公立体系学费较低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数字段以法语能力为主，英语成绩不是主要门槛。", majors: classicalMajors, url: "https://www.conservatoiredeparis.fr/en/admissions", selectivity: "extreme", auditionMode: "live" },
+  { id: "cnsmdp", name: "Conservatoire national supérieur de musique et de danse de Paris", nameCn: "巴黎国立高等音乐舞蹈学院 CNSMDP", country: "法国", lang: "french", region: "Europe", city: "Paris", ranking: 6, tuitionUsd: 1200, tuitionLabel: "法国公立体系学费较低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数字段以法语能力为主，英语成绩不是主要门槛。", majors: classicalMajors, url: "https://www.conservatoiredeparis.fr/en/admissions", selectivity: "extreme", auditionMode: "live" },
   { id: "rcs", name: "Royal Conservatoire of Scotland", nameCn: "苏格兰皇家音乐学院 RCS", country: "英国", region: "UK", city: "Glasgow", ranking: 7, tuitionUsd: 33000, tuitionLabel: "国际生约 £25k-32k / 年，按课程浮动", ielts: 5.5, toefl: 72, majors: commonMajors, url: "https://www.rcs.ac.uk/apply/" },
   { id: "rncm", name: "Royal Northern College of Music", nameCn: "皇家北方音乐学院 RNCM", country: "英国", region: "UK", city: "Manchester", ranking: 8, tuitionUsd: 33000, tuitionLabel: "国际生约 £25k+ / 年，按课程浮动", ielts: 5.5, toefl: 72, majors: classicalMajors.concat(["Jazz"]), url: "https://www.rncm.ac.uk/study-here/how-to-apply/" },
-  { id: "moscow-conservatory", lang: "russian", name: "Moscow State Conservatory P. I. Tchaikovsky", nameCn: "莫斯科柴可夫斯基音乐学院", country: "俄罗斯", region: "Europe", city: "Moscow", ranking: 10, tuitionUsd: 9000, tuitionLabel: "国际生学费按专业和授课语言核对", ielts: 0, toefl: 0, languageNote: "以俄语能力和专业考试为主。", majors: classicalMajors, url: "https://mosconsv.ru/en/" },
-  { id: "dkdm", lang: "nordic", name: "Royal Danish Academy of Music", nameCn: "丹麦皇家音乐学院 DKDM", country: "丹麦", region: "Europe", city: "Copenhagen", ranking: 11, tuitionUsd: 15000, tuitionLabel: "非 EU/EEA 学费约 €13k+ / 年", ielts: 6, toefl: 80, majors: classicalMajors.concat(["Jazz"]), url: "https://english.dkdm.dk/Admission" },
-  { id: "riam", lang: "english", name: "Royal Irish Academy of Music", nameCn: "爱尔兰皇家音乐学院 RIAM", country: "爱尔兰", region: "Europe", city: "Dublin", ranking: 12, tuitionUsd: 25000, tuitionLabel: "国际生约 €20k+ / 年，按课程核对", ielts: 6, toefl: 80, majors: classicalMajors, url: "https://www.riam.ie/study" },
+  { id: "moscow-conservatory", name: "Moscow State Conservatory P. I. Tchaikovsky", nameCn: "莫斯科柴可夫斯基音乐学院", country: "俄罗斯", lang: "russian", region: "Europe", city: "Moscow", ranking: 10, tuitionUsd: 9000, tuitionLabel: "国际生学费按专业和授课语言核对", ielts: 0, toefl: 0, languageNote: "以俄语能力和专业考试为主。", majors: classicalMajors, url: "https://mosconsv.ru/en/" },
+  { id: "dkdm", name: "Royal Danish Academy of Music", nameCn: "丹麦皇家音乐学院 DKDM", country: "丹麦", lang: "nordic", region: "Europe", city: "Copenhagen", ranking: 11, tuitionUsd: 15000, tuitionLabel: "非 EU/EEA 学费约 €13k+ / 年", ielts: 6, toefl: 80, majors: classicalMajors.concat(["Jazz"]), url: "https://english.dkdm.dk/Admission" },
+  { id: "riam", name: "Royal Irish Academy of Music", nameCn: "爱尔兰皇家音乐学院 RIAM", country: "爱尔兰", lang: "english", region: "Europe", city: "Dublin", ranking: 12, tuitionUsd: 25000, tuitionLabel: "国际生约 €20k+ / 年，按课程核对", ielts: 6, toefl: 80, majors: classicalMajors, url: "https://www.riam.ie/study" },
   { id: "eastman", name: "Eastman School of Music, University of Rochester", nameCn: "伊斯曼音乐学院", country: "美国", region: "US", city: "Rochester", ranking: 15, tuitionUsd: 65000, tuitionLabel: "美国私立大学学费较高，奖助学金需同步核对", ielts: 6.5, toefl: 83, majors: commonMajors, url: "https://www.esm.rochester.edu/admissions/" },
   { id: "indiana-jacobs", name: "Indiana University Jacobs School of Music", nameCn: "印第安纳大学雅各布斯音乐学院", country: "美国", region: "US", city: "Bloomington", ranking: 16, tuitionUsd: 42000, tuitionLabel: "国际本科约 $40k+ / 年，按学分和校区费用浮动", ielts: 6.5, toefl: 79, majors: commonMajors, url: "https://music.indiana.edu/admissions/index.html" },
-  { id: "liszt-academy", institutionType: "Conservatoire", lang: "hungarian", name: "Liszt Ferenc Academy of Music", nameCn: "李斯特音乐学院", country: "匈牙利", region: "Europe", city: "Budapest", ranking: 17, tuitionUsd: 9000, tuitionLabel: "国际生约 €6k-10k / 年，按专业核对", ielts: 0, toefl: 0, languageNote: "授课语言和专业不同，需核对英语或匈牙利语要求。", majors: classicalMajors.concat(["Jazz"]), url: "https://lfze.hu/en/admission" },
-  { id: "nmh", lang: "nordic", name: "Norwegian Academy of Music", nameCn: "挪威音乐学院 NMH", country: "挪威", region: "Europe", city: "Oslo", ranking: 18, tuitionUsd: 25000, tuitionLabel: "非 EU/EEA 学费按项目核对，北欧生活成本较高", ielts: 6, toefl: 80, majors: classicalMajors.concat(["Jazz"]), url: "https://nmh.no/en/studies/admission" },
+  { id: "liszt-academy", name: "Liszt Ferenc Academy of Music", nameCn: "李斯特音乐学院", country: "匈牙利", institutionType: "Conservatoire", lang: "hungarian", region: "Europe", city: "Budapest", ranking: 17, tuitionUsd: 9000, tuitionLabel: "国际生约 €6k-10k / 年，按专业核对", ielts: 0, toefl: 0, languageNote: "授课语言和专业不同，需核对英语或匈牙利语要求。", majors: classicalMajors.concat(["Jazz"]), url: "https://lfze.hu/en/admission" },
+  { id: "nmh", name: "Norwegian Academy of Music", nameCn: "挪威音乐学院 NMH", country: "挪威", lang: "nordic", region: "Europe", city: "Oslo", ranking: 18, tuitionUsd: 25000, tuitionLabel: "非 EU/EEA 学费按项目核对，北欧生活成本较高", ielts: 6, toefl: 80, majors: classicalMajors.concat(["Jazz"]), url: "https://nmh.no/en/studies/admission" },
   { id: "trinity-laban", name: "Trinity Laban Conservatoire of Music and Dance", nameCn: "圣三一拉邦音乐舞蹈学院", country: "英国", region: "UK", city: "London", ranking: 20, tuitionUsd: 33000, tuitionLabel: "国际生约 £25k+ / 年，按课程浮动", ielts: 5.5, toefl: 72, majors: commonMajors, url: "https://www.trinitylaban.ac.uk/study/how-to-apply/" },
   { id: "cambridge-music", name: "University of Cambridge, Faculty of Music", nameCn: "剑桥大学音乐系", country: "英国", region: "UK", city: "Cambridge", ranking: 21, tuitionUsd: 46000, tuitionLabel: "国际本科约 £35k+ / 年，学院费和生活费另计", ielts: 7.5, toefl: 110, majors: ["Composition", "Music Education"], admissionRules: "综合大学路径，重视学术材料、面试、写作/作品集和学院录取要求。", examContent: "偏学术与创作研究，演奏可作为能力材料但不是所有路径的唯一核心。", url: "https://www.mus.cam.ac.uk/applicants" },
-  { id: "gnesins", lang: "russian", name: "The Gnesins Russian Academy of Music", nameCn: "格涅辛俄罗斯音乐学院", country: "俄罗斯", region: "Europe", city: "Moscow", ranking: 22, tuitionUsd: 7000, tuitionLabel: "国际生学费按专业核对", ielts: 0, toefl: 0, languageNote: "通常以俄语和专业入学考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://gnesin-academy.ru/en/" },
-  { id: "chopin-university", institutionType: "Conservatoire", lang: "polish", name: "Chopin University of Music", nameCn: "肖邦音乐大学", country: "波兰", region: "Europe", city: "Warsaw", ranking: 23, tuitionUsd: 9000, tuitionLabel: "国际生约 €6k-10k / 年，按项目核对", ielts: 0, toefl: 0, languageNote: "需核对英语或波兰语授课路径。", majors: classicalMajors, url: "https://chopin.edu.pl/admission" },
+  { id: "gnesins", name: "The Gnesins Russian Academy of Music", nameCn: "格涅辛俄罗斯音乐学院", country: "俄罗斯", lang: "russian", region: "Europe", city: "Moscow", ranking: 22, tuitionUsd: 7000, tuitionLabel: "国际生学费按专业核对", ielts: 0, toefl: 0, languageNote: "通常以俄语和专业入学考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://gnesin-academy.ru/en/" },
+  { id: "chopin-university", name: "Chopin University of Music", nameCn: "肖邦音乐大学", country: "波兰", institutionType: "Conservatoire", lang: "polish", region: "Europe", city: "Warsaw", ranking: 23, tuitionUsd: 9000, tuitionLabel: "国际生约 €6k-10k / 年，按项目核对", ielts: 0, toefl: 0, languageNote: "需核对英语或波兰语授课路径。", majors: classicalMajors, url: "https://chopin.edu.pl/admission" },
   { id: "ucsi-music", name: "UCSI University Institute of Music", nameCn: "UCSI 大学音乐学院", country: "马来西亚", region: "Asia", city: "Kuala Lumpur", ranking: 24, tuitionUsd: 9500, tuitionLabel: "国际生约 $8k-12k / 年，按课程核对", ielts: 5.5, toefl: 60, majors: commonMajors, selectivity: "medium", url: "https://www.ucsiuniversity.edu.my/institute-of-music" },
-  { id: "st-petersburg-conservatory", lang: "russian", name: "St. Petersburg Conservatory", nameCn: "圣彼得堡音乐学院", country: "俄罗斯", region: "Europe", city: "Saint Petersburg", ranking: 25, tuitionUsd: 7000, tuitionLabel: "国际生学费按专业核对", ielts: 0, toefl: 0, languageNote: "通常以俄语能力和专业考试为主。", majors: classicalMajors, url: "https://www.conservatory.ru/en" },
+  { id: "st-petersburg-conservatory", name: "St. Petersburg Conservatory", nameCn: "圣彼得堡音乐学院", country: "俄罗斯", lang: "russian", region: "Europe", city: "Saint Petersburg", ranking: 25, tuitionUsd: 7000, tuitionLabel: "国际生学费按专业核对", ielts: 0, toefl: 0, languageNote: "通常以俄语能力和专业考试为主。", majors: classicalMajors, url: "https://www.conservatory.ru/en" },
   { id: "boston-university-music", name: "Boston University School of Music", nameCn: "波士顿大学音乐学院", country: "美国", region: "US", city: "Boston", ranking: 26, tuitionUsd: 66000, tuitionLabel: "美国私立大学学费较高，按 BU 学费表核对", ielts: 7, toefl: 90, majors: commonMajors, url: "https://www.bu.edu/cfa/admissions/school-of-music/" },
-  { id: "cnsmdl", lang: "french", name: "Conservatoire national supérieur musique et danse de Lyon", nameCn: "里昂国立高等音乐舞蹈学院 CNSMDL", country: "法国", region: "Europe", city: "Lyon", ranking: 26, tuitionUsd: 1200, tuitionLabel: "法国公立体系注册费较低，生活费另计", ielts: 0, toefl: 0, languageNote: "多数字段以法语能力和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.cnsmd-lyon.fr/en/admissions" },
+  { id: "cnsmdl", name: "Conservatoire national supérieur musique et danse de Lyon", nameCn: "里昂国立高等音乐舞蹈学院 CNSMDL", country: "法国", lang: "french", region: "Europe", city: "Lyon", ranking: 26, tuitionUsd: 1200, tuitionLabel: "法国公立体系注册费较低，生活费另计", ielts: 0, toefl: 0, languageNote: "多数字段以法语能力和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.cnsmd-lyon.fr/en/admissions" },
   { id: "griffith-conservatorium", name: "Queensland Conservatorium, Griffith University", nameCn: "昆士兰音乐学院 Griffith", country: "澳大利亚", region: "Oceania", city: "Brisbane", ranking: 26, tuitionUsd: 33000, tuitionLabel: "国际生约 AUD 45k+ / 年，按课程核对", ielts: 6.5, toefl: 79, majors: commonMajors, selectivity: "medium", url: "https://www.griffith.edu.au/arts-education-law/queensland-conservatorium" },
   { id: "mahidol-music", name: "College of Music, Mahidol University", nameCn: "玛希隆大学音乐学院", country: "泰国", region: "Asia", city: "Nakhon Pathom", ranking: 26, tuitionUsd: 11000, tuitionLabel: "国际项目约 $8k-13k / 年，按课程核对", ielts: 5.5, toefl: 60, majors: commonMajors, selectivity: "medium", url: "https://www.music.mahidol.ac.th/" },
   { id: "ntu-music", name: "Nanyang Technological University Music Programmes", nameCn: "南洋理工大学音乐相关项目", country: "新加坡", region: "Asia", city: "Singapore", ranking: 26, tuitionUsd: 26000, tuitionLabel: "国际生按 NTU 学费表核对", ielts: 6.5, toefl: 90, majors: ["Music Production", "Composition", "Music Education"], admissionRules: "综合大学音乐/艺术科技相关路径，需按具体学院和项目核对作品集与学术要求。", url: "https://www.ntu.edu.sg/admissions" },
   { id: "northwestern-bienen", name: "Bienen School of Music, Northwestern University", nameCn: "西北大学 Bienen 音乐学院", country: "美国", region: "US", city: "Evanston", ranking: 26, tuitionUsd: 70000, tuitionLabel: "美国私立大学学费较高，按 Northwestern 学费表核对", ielts: 7.5, toefl: 100, majors: commonMajors, url: "https://www.music.northwestern.edu/admission" },
-  { id: "royal-academy-aarhus", lang: "nordic", name: "Royal Academy of Music Aarhus/Aalborg", nameCn: "丹麦皇家音乐学院 Aarhus/Aalborg", country: "丹麦", region: "Europe", city: "Aarhus", ranking: 26, tuitionUsd: 15000, tuitionLabel: "非 EU/EEA 学费约 €13k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://musikkons.dk/en/admission/" },
-  { id: "kmh-stockholm", lang: "nordic", name: "Royal College of Music in Stockholm", nameCn: "斯德哥尔摩皇家音乐学院 KMH", country: "瑞典", region: "Europe", city: "Stockholm", ranking: 26, tuitionUsd: 23000, tuitionLabel: "非 EU/EEA 学费约 SEK 250k+ / 年，按项目核对", ielts: 6.5, toefl: 90, majors: commonMajors, url: "https://www.kmh.se/in-english/education/admissions.html" },
+  { id: "royal-academy-aarhus", name: "Royal Academy of Music Aarhus/Aalborg", nameCn: "丹麦皇家音乐学院 Aarhus/Aalborg", country: "丹麦", lang: "nordic", region: "Europe", city: "Aarhus", ranking: 26, tuitionUsd: 15000, tuitionLabel: "非 EU/EEA 学费约 €13k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://musikkons.dk/en/admission/" },
+  { id: "kmh-stockholm", name: "Royal College of Music in Stockholm", nameCn: "斯德哥尔摩皇家音乐学院 KMH", country: "瑞典", lang: "nordic", region: "Europe", city: "Stockholm", ranking: 26, tuitionUsd: 23000, tuitionLabel: "非 EU/EEA 学费约 SEK 250k+ / 年，按项目核对", ielts: 6.5, toefl: 90, majors: commonMajors, url: "https://www.kmh.se/in-english/education/admissions.html" },
   { id: "royal-holloway-music", name: "Royal Holloway, University of London Department of Music", nameCn: "伦敦大学皇家霍洛威音乐系", country: "英国", region: "UK", city: "Egham", ranking: 26, tuitionUsd: 31000, tuitionLabel: "国际生约 £24k+ / 年，按课程核对", ielts: 6.5, toefl: 88, majors: ["Composition", "Music Education", "Music Production"], admissionRules: "综合大学音乐系路径，偏学术、创作、研究和作品集/写作材料。", url: "https://www.royalholloway.ac.uk/research-and-teaching/departments-and-schools/music/" },
   { id: "snu-music", name: "Seoul National University College of Music", nameCn: "首尔大学音乐学院", country: "韩国", region: "Asia", city: "Seoul", ranking: 26, tuitionUsd: 7000, tuitionLabel: "国立大学学费相对低，国际生费用按学院核对", ielts: 6, toefl: 80, languageNote: "韩语或英语要求按项目核对，部分路径需要 TOPIK。", majors: classicalMajors, url: "https://music.snu.ac.kr/en" },
   { id: "melbourne-conservatorium", name: "Melbourne Conservatorium of Music", nameCn: "墨尔本大学音乐学院", country: "澳大利亚", region: "Oceania", city: "Melbourne", ranking: 26, tuitionUsd: 36000, tuitionLabel: "国际生约 AUD 50k+ / 年，按课程核对", ielts: 6.5, toefl: 79, majors: commonMajors, url: "https://finearts-music.unimelb.edu.au/study-with-us/music" },
   { id: "tokyo-geidai", name: "Tokyo University of the Arts", nameCn: "东京艺术大学音乐学部", country: "日本", region: "Asia", city: "Tokyo", ranking: 26, tuitionUsd: 6000, tuitionLabel: "国立大学学费较低，入学金和生活费另计", ielts: 0, toefl: 0, languageNote: "通常以日语能力、校内考试和专业考试为主。", majors: classicalMajors.concat(["Music Education"]), url: "https://admissions.geidai.ac.jp/en/" },
-  { id: "mozarteum", institutionType: "Conservatoire", lang: "german", name: "Mozarteum University Salzburg", nameCn: "萨尔茨堡莫扎特音乐大学", country: "奥地利", region: "Europe", city: "Salzburg", ranking: 26, tuitionUsd: 1700, tuitionLabel: "公立大学学费较低，非 EU/EEA 需按政策核对", ielts: 0, toefl: 0, languageNote: "多数项目以德语能力和专业入学考试为主。", majors: classicalMajors.concat(["Music Education"]), url: "https://www.moz.ac.at/en/study/admission" },
+  { id: "mozarteum", name: "Mozarteum University Salzburg", nameCn: "萨尔茨堡莫扎特音乐大学", country: "奥地利", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Salzburg", ranking: 26, tuitionUsd: 1700, tuitionLabel: "公立大学学费较低，非 EU/EEA 需按政策核对", ielts: 0, toefl: 0, languageNote: "多数项目以德语能力和专业入学考试为主。", majors: classicalMajors.concat(["Music Education"]), url: "https://www.moz.ac.at/en/study/admission" },
   { id: "ubc-music", name: "University of British Columbia School of Music", nameCn: "英属哥伦比亚大学音乐学院 UBC", country: "加拿大", region: "Canada", city: "Vancouver", ranking: 26, tuitionUsd: 33000, tuitionLabel: "国际生约 CAD 40k+ / 年，按学分核对", ielts: 6.5, toefl: 90, majors: commonMajors, url: "https://music.ubc.ca/admissions/" },
   { id: "ucb-music", name: "University of California, Berkeley Department of Music", nameCn: "加州大学伯克利音乐系", country: "美国", region: "US", city: "Berkeley", ranking: 26, tuitionUsd: 50000, tuitionLabel: "州外/国际费用较高，按 UC Berkeley 学费表核对", ielts: 6.5, toefl: 80, majors: ["Composition", "Music Education", "Music Production"], admissionRules: "综合大学音乐系路径，重学术成绩、大学申请、作品/研究兴趣和课程匹配。", url: "https://music.berkeley.edu/undergraduate/" },
   { id: "huddersfield-music", name: "University of Huddersfield Music", nameCn: "哈德斯菲尔德大学音乐与音乐技术", country: "英国", region: "UK", city: "Huddersfield", ranking: 26, tuitionUsd: 24000, tuitionLabel: "国际生约 £18k-20k / 年，按课程核对", ielts: 6, toefl: 80, majors: ["Composition", "Music Production", "Music Education"], selectivity: "medium", url: "https://courses.hud.ac.uk/subjects/music-music-technology" },
   { id: "michigan-smt", name: "University of Michigan School of Music, Theatre & Dance", nameCn: "密歇根大学音乐、戏剧与舞蹈学院", country: "美国", region: "US", city: "Ann Arbor", ranking: 26, tuitionUsd: 60000, tuitionLabel: "国际/州外费用较高，按 UMich 学费表核对", ielts: 6.5, toefl: 88, majors: commonMajors, url: "https://smtd.umich.edu/admissions/" },
   { id: "toronto-music", name: "University of Toronto Faculty of Music", nameCn: "多伦多大学音乐学院", country: "加拿大", region: "Canada", city: "Toronto", ranking: 26, tuitionUsd: 43000, tuitionLabel: "国际生约 CAD 55k+ / 年，按项目核对", ielts: 6.5, toefl: 100, majors: commonMajors, url: "https://music.utoronto.ca/apply-admissions" },
-  { id: "udk-berlin", institutionType: "Conservatoire", lang: "german", name: "Berlin University of the Arts", nameCn: "柏林艺术大学 UdK", country: "德国", region: "Europe", city: "Berlin", ranking: 26, tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数音乐项目以德语和专业考试为主。", majors: commonMajors, url: "https://www.udk-berlin.de/en/studies/application/" },
+  { id: "udk-berlin", name: "Berlin University of the Arts", nameCn: "柏林艺术大学 UdK", country: "德国", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Berlin", ranking: 26, tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数音乐项目以德语和专业考试为主。", majors: commonMajors, url: "https://www.udk-berlin.de/en/studies/application/" },
   { id: "yale-music", name: "Yale School of Music", nameCn: "耶鲁音乐学院", country: "美国", region: "US", city: "New Haven", ranking: 26, tuitionUsd: 0, tuitionLabel: "研究生音乐项目通常全额学费奖学金，生活费另计", ielts: 7, toefl: 100, degrees: ["Master", "Diploma"], majors: classicalMajors, selectivity: "extreme", url: "https://music.yale.edu/admissions" },
   { id: "manhattan-school", name: "Manhattan School of Music", nameCn: "曼哈顿音乐学院", country: "美国", region: "US", city: "New York", ranking: 55, rankingLabel: "美国独立音乐学院常见申请校", tuitionUsd: 56000, tuitionLabel: "约 $56k+ / 年，纽约生活费另计", ielts: 6, toefl: 79, majors: commonMajors, url: "https://www.msmnyc.edu/admission/" },
   { id: "mannes", name: "Mannes School of Music", nameCn: "曼尼斯音乐学院", country: "美国", region: "US", city: "New York", ranking: 56, rankingLabel: "纽约独立音乐学院常见申请校", tuitionUsd: 57000, tuitionLabel: "约 $57k+ / 年，按 The New School 费用核对", ielts: 6.5, toefl: 92, majors: classicalMajors.concat(["Jazz"]), url: "https://www.newschool.edu/mannes/admission/" },
@@ -552,21 +551,23 @@ function addSchool(seed) {
   { id: "royal-welsh", name: "Royal Welsh College of Music & Drama", nameCn: "威尔士皇家音乐与戏剧学院", country: "英国", region: "UK", city: "Cardiff", ranking: 64, rankingLabel: "英国 conservatoire 常见申请校", tuitionUsd: 31000, tuitionLabel: "国际生约 £24k+ / 年，按课程核对", ielts: 5.5, toefl: 72, majors: commonMajors, url: "https://www.rwcmd.ac.uk/study/apply" },
   { id: "royal-birmingham", name: "Royal Birmingham Conservatoire", nameCn: "伯明翰皇家音乐学院", country: "英国", region: "UK", city: "Birmingham", ranking: 65, rankingLabel: "英国 conservatoire 常见申请校", tuitionUsd: 28000, tuitionLabel: "国际生约 £21k+ / 年，按课程核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.bcu.ac.uk/conservatoire" },
   { id: "leeds-conservatoire", name: "Leeds Conservatoire", nameCn: "利兹音乐学院", country: "英国", region: "UK", city: "Leeds", ranking: 66, rankingLabel: "英国现代音乐/爵士常见申请校", tuitionUsd: 26000, tuitionLabel: "国际生约 £20k+ / 年，按课程核对", ielts: 6, toefl: 80, majors: contemporaryMajors, selectivity: "medium", url: "https://www.leedsconservatoire.ac.uk/courses/how-to-apply/" },
-  { id: "codarts", lang: "dutch", name: "Codarts Rotterdam", nameCn: "鹿特丹艺术大学 Codarts", country: "荷兰", region: "Europe", city: "Rotterdam", ranking: 67, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.codarts.nl/en/admission/" },
-  { id: "conservatorium-amsterdam", lang: "dutch", name: "Conservatorium van Amsterdam", nameCn: "阿姆斯特丹音乐学院", country: "荷兰", region: "Europe", city: "Amsterdam", ranking: 68, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.conservatoriumvanamsterdam.nl/en/study/admission/" },
-  { id: "royal-conservatoire-hague", lang: "dutch", name: "Royal Conservatoire The Hague", nameCn: "海牙皇家音乐学院", country: "荷兰", region: "Europe", city: "The Hague", ranking: 69, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.koncon.nl/en/apply" },
-  { id: "zhdk", institutionType: "Conservatoire", lang: "german", name: "Zurich University of the Arts", nameCn: "苏黎世艺术大学 ZHdK 音乐系", country: "瑞士", region: "Europe", city: "Zurich", ranking: 70, rankingLabel: "欧洲艺术大学音乐申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "德语/英语要求按项目核对。", majors: commonMajors, url: "https://www.zhdk.ch/en/degree-programmes/music" },
-  { id: "hfm-munich", institutionType: "Conservatoire", lang: "german", name: "University of Music and Theatre Munich", nameCn: "慕尼黑音乐与戏剧学院", country: "德国", region: "Europe", city: "Munich", ranking: 71, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://hmtm.de/en/studies/application/" },
-  { id: "hanns-eisler", institutionType: "Conservatoire", lang: "german", name: "Hochschule für Musik Hanns Eisler Berlin", nameCn: "柏林汉斯艾斯勒音乐学院", country: "德国", region: "Europe", city: "Berlin", ranking: 72, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors, url: "https://www.hfm-berlin.de/en/studies/application/" },
-  { id: "hfmt-cologne", institutionType: "Conservatoire", lang: "german", name: "Hochschule für Musik und Tanz Köln", nameCn: "科隆音乐与舞蹈学院", country: "德国", region: "Europe", city: "Cologne", ranking: 73, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: commonMajors, url: "https://www.hfmt-koeln.de/en/studies/application/" },
-  { id: "hmt-leipzig", institutionType: "Conservatoire", lang: "german", name: "University of Music and Theatre Leipzig", nameCn: "莱比锡音乐与戏剧学院", country: "德国", region: "Europe", city: "Leipzig", ranking: 74, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hmt-leipzig.de/en/home" },
-  { id: "santa-cecilia", lang: "italian", name: "Conservatorio di Musica Santa Cecilia", nameCn: "罗马圣切契利亚音乐学院", country: "意大利", region: "Europe", city: "Rome", ranking: 75, rankingLabel: "意大利 conservatorio 常见申请校", tuitionUsd: 2500, tuitionLabel: "公立音乐学院学费较低，按 ISEE/国际生政策核对", ielts: 0, toefl: 0, languageNote: "多以意大利语能力和专业考试为主。", majors: classicalMajors, url: "https://conservatoriosantacecilia.it/" },
-  { id: "verdi-milan", lang: "italian", name: "Conservatorio Giuseppe Verdi di Milano", nameCn: "米兰威尔第音乐学院", country: "意大利", region: "Europe", city: "Milan", ranking: 76, rankingLabel: "意大利 conservatorio 常见申请校", tuitionUsd: 2500, tuitionLabel: "公立音乐学院学费较低，按专业和身份核对", ielts: 0, toefl: 0, languageNote: "多以意大利语能力和专业考试为主。", majors: classicalMajors.concat(["Music Education"]), url: "https://www.consmi.it/" },
-  { id: "hem-geneva", lang: "french", name: "Haute école de musique Genève", nameCn: "日内瓦高等音乐学院 HEM", country: "瑞士", region: "Europe", city: "Geneva", ranking: 77, rankingLabel: "瑞士音乐学院常见申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "法语/英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hesge.ch/hem/en/studies/admissions" },
-  { id: "hemu-lausanne", lang: "french", name: "Haute école de musique de Lausanne", nameCn: "洛桑高等音乐学院 HEMU", country: "瑞士", region: "Europe", city: "Lausanne", ranking: 78, rankingLabel: "瑞士音乐学院常见申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "法语/英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hemu.ch/en/admissions" },
-  { id: "brussels-conservatoire", lang: "french", name: "Royal Conservatory of Brussels", nameCn: "布鲁塞尔皇家音乐学院", country: "比利时", region: "Europe", city: "Brussels", ranking: 79, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 4500, tuitionLabel: "学费按法语/荷语体系和身份核对", ielts: 0, toefl: 0, languageNote: "法语、荷语或英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.conservatoire.be/" },
-  { id: "antwerp-conservatoire", lang: "dutch", name: "Royal Conservatoire Antwerp", nameCn: "安特卫普皇家音乐学院", country: "比利时", region: "Europe", city: "Antwerp", ranking: 80, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 4500, tuitionLabel: "学费按项目和身份核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.ap-arts.be/en/royal-conservatoire-antwerp" },
-  { id: "knua-music", name: "Korea National University of Arts School of Music", nameCn: "韩国艺术综合大学音乐院", country: "韩国", region: "Asia", city: "Seoul", ranking: 81, rankingLabel: "亚洲音乐艺术院校常见申请校", tuitionUsd: 7000, tuitionLabel: "国立艺术大学学费相对低，按项目核对", ielts: 0, toefl: 0, languageNote: "韩语或英语要求按项目核对，可能需要 TOPIK。", majors: classicalMajors, url: "https://www.karts.ac.kr/en/" }
+  { id: "codarts", name: "Codarts Rotterdam", nameCn: "鹿特丹艺术大学 Codarts", country: "荷兰", lang: "dutch", region: "Europe", city: "Rotterdam", ranking: 67, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.codarts.nl/en/admission/" },
+  { id: "conservatorium-amsterdam", name: "Conservatorium van Amsterdam", nameCn: "阿姆斯特丹音乐学院", country: "荷兰", lang: "dutch", region: "Europe", city: "Amsterdam", ranking: 68, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.conservatoriumvanamsterdam.nl/en/study/admission/" },
+  { id: "royal-conservatoire-hague", name: "Royal Conservatoire The Hague", nameCn: "海牙皇家音乐学院", country: "荷兰", lang: "dutch", region: "Europe", city: "The Hague", ranking: 69, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 13000, tuitionLabel: "非 EU/EEA 学费约 €11k+ / 年，按项目核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.koncon.nl/en/apply" },
+  { id: "zhdk", name: "Zurich University of the Arts", nameCn: "苏黎世艺术大学 ZHdK 音乐系", country: "瑞士", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Zurich", ranking: 70, rankingLabel: "欧洲艺术大学音乐申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "德语/英语要求按项目核对。", majors: commonMajors, url: "https://www.zhdk.ch/en/degree-programmes/music" },
+  { id: "hfm-munich", name: "University of Music and Theatre Munich", nameCn: "慕尼黑音乐与戏剧学院", country: "德国", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Munich", ranking: 71, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://hmtm.de/en/studies/application/" },
+  { id: "hanns-eisler", name: "Hochschule für Musik Hanns Eisler Berlin", nameCn: "柏林汉斯艾斯勒音乐学院", country: "德国", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Berlin", ranking: 72, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors, url: "https://www.hfm-berlin.de/en/studies/application/" },
+  { id: "hfmt-cologne", name: "Hochschule für Musik und Tanz Köln", nameCn: "科隆音乐与舞蹈学院", country: "德国", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Cologne", ranking: 73, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: commonMajors, url: "https://www.hfmt-koeln.de/en/studies/application/" },
+  { id: "hmt-leipzig", name: "University of Music and Theatre Leipzig", nameCn: "莱比锡音乐与戏剧学院", country: "德国", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Leipzig", ranking: 74, rankingLabel: "德国 Musikhochschule 常见申请校", tuitionUsd: 900, tuitionLabel: "德国公立体系学费低，注册费和生活费另计", ielts: 0, toefl: 0, languageNote: "多数项目以德语和专业考试为主。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hmt-leipzig.de/en/home" },
+  { id: "santa-cecilia", name: "Conservatorio di Musica Santa Cecilia", nameCn: "罗马圣切契利亚音乐学院", country: "意大利", lang: "italian", region: "Europe", city: "Rome", ranking: 75, rankingLabel: "意大利 conservatorio 常见申请校", tuitionUsd: 2500, tuitionLabel: "公立音乐学院学费较低，按 ISEE/国际生政策核对", ielts: 0, toefl: 0, languageNote: "多以意大利语能力和专业考试为主。", majors: classicalMajors, url: "https://conservatoriosantacecilia.it/" },
+  { id: "verdi-milan", name: "Conservatorio Giuseppe Verdi di Milano", nameCn: "米兰威尔第音乐学院", country: "意大利", lang: "italian", region: "Europe", city: "Milan", ranking: 76, rankingLabel: "意大利 conservatorio 常见申请校", tuitionUsd: 2500, tuitionLabel: "公立音乐学院学费较低，按专业和身份核对", ielts: 0, toefl: 0, languageNote: "多以意大利语能力和专业考试为主。", majors: classicalMajors.concat(["Music Education"]), url: "https://www.consmi.it/" },
+  { id: "hem-geneva", name: "Haute école de musique Genève", nameCn: "日内瓦高等音乐学院 HEM", country: "瑞士", lang: "french", region: "Europe", city: "Geneva", ranking: 77, rankingLabel: "瑞士音乐学院常见申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "法语/英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hesge.ch/hem/en/studies/admissions" },
+  { id: "hemu-lausanne", name: "Haute école de musique de Lausanne", nameCn: "洛桑高等音乐学院 HEMU", country: "瑞士", lang: "french", region: "Europe", city: "Lausanne", ranking: 78, rankingLabel: "瑞士音乐学院常见申请校", tuitionUsd: 1800, tuitionLabel: "瑞士公立体系学费较低，生活成本高", ielts: 0, toefl: 0, languageNote: "法语/英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.hemu.ch/en/admissions" },
+  { id: "brussels-conservatoire", name: "Royal Conservatory of Brussels", nameCn: "布鲁塞尔皇家音乐学院", country: "比利时", lang: "french", region: "Europe", city: "Brussels", ranking: 79, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 4500, tuitionLabel: "学费按法语/荷语体系和身份核对", ielts: 0, toefl: 0, languageNote: "法语、荷语或英语要求按项目核对。", majors: classicalMajors.concat(["Jazz"]), url: "https://www.conservatoire.be/" },
+  { id: "antwerp-conservatoire", name: "Royal Conservatoire Antwerp", nameCn: "安特卫普皇家音乐学院", country: "比利时", lang: "dutch", region: "Europe", city: "Antwerp", ranking: 80, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 4500, tuitionLabel: "学费按项目和身份核对", ielts: 6, toefl: 80, majors: commonMajors, url: "https://www.ap-arts.be/en/royal-conservatoire-antwerp" },
+  { id: "knua-music", name: "Korea National University of Arts School of Music", nameCn: "韩国艺术综合大学音乐院", country: "韩国", region: "Asia", city: "Seoul", ranking: 81, rankingLabel: "亚洲音乐艺术院校常见申请校", tuitionUsd: 7000, tuitionLabel: "国立艺术大学学费相对低，按项目核对", ielts: 0, toefl: 0, languageNote: "韩语或英语要求按项目核对，可能需要 TOPIK。", majors: classicalMajors, url: "https://www.karts.ac.kr/en/" },
+  { id: "hkapa", name: "Hong Kong Academy for Performing Arts", nameCn: "香港演艺学院 HKAPA", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 26, rankingLabel: "QS Music 2026 #26", tuitionUsd: 14000, tuitionLabel: "非本地生学费约 HKD 120k+ / 年，按课程核对", ielts: 6, toefl: 79, majors: commonMajors, url: "https://www.hkapa.edu/study" },
+  { id: "taipei-arts-music", name: "Taipei National University of the Arts Department of Music", nameCn: "台北艺术大学音乐学系", country: "中国台湾", region: "Asia", city: "Taipei", ranking: 106, rankingLabel: "亚洲艺术大学音乐申请校", tuitionUsd: 6000, tuitionLabel: "学费按身份和项目核对", ielts: 0, toefl: 0, majors: classicalMajors.concat(["Music Education"]), url: "https://music.tnua.edu.tw/", languageNote: "中文授课为主，语言要求按招生简章核对。" },
 ].forEach(addSchool);
 
 [
@@ -589,16 +590,19 @@ function addSchool(seed) {
   { id: "monash-music", name: "Monash University Sir Zelman Cowen School of Music and Performance", nameCn: "蒙纳士大学音乐与表演学院", country: "澳大利亚", region: "Oceania", city: "Melbourne", ranking: 98, rankingLabel: "澳洲综合大学音乐学院常见申请校", tuitionUsd: 32000, tuitionLabel: "国际生约 AUD 48k+ / 年，按课程核对", ielts: 6.5, toefl: 79, majors: ["Jazz", "Music Production", "Composition", "Voice", "Piano", "Music Education"], url: "https://www.monash.edu/arts/sir-zelman-cowen-school-of-music-performance", institutionType: "University" },
   { id: "anu-music", name: "Australian National University School of Music", nameCn: "澳大利亚国立大学音乐学院", country: "澳大利亚", region: "Oceania", city: "Canberra", ranking: 99, rankingLabel: "澳洲综合大学音乐学院常见申请校", tuitionUsd: 33000, tuitionLabel: "国际生约 AUD 50k+ / 年，按课程核对", ielts: 6.5, toefl: 80, majors: commonMajors, url: "https://music.cass.anu.edu.au/study", institutionType: "University" },
   { id: "aim-australia", name: "Australian Institute of Music", nameCn: "澳大利亚音乐学院 AIM", country: "澳大利亚", region: "Oceania", city: "Sydney / Melbourne", ranking: 100, rankingLabel: "澳洲现代音乐/音乐剧常见申请校", tuitionUsd: 28000, tuitionLabel: "国际生约 AUD 40k+ / 年，按课程核对", ielts: 6, toefl: 60, majors: contemporaryMajors.concat(["Music Education"]), selectivity: "medium", url: "https://aim.edu.au/international-students/", programsUrl: "https://aim.edu.au/courses/" },
-    { id: "taipei-arts-music", name: "Taipei National University of the Arts Department of Music", nameCn: "台北艺术大学音乐学系", country: "中国台湾", region: "Asia", city: "Taipei", ranking: 106, rankingLabel: "亚洲艺术大学音乐申请校", tuitionUsd: 6000, tuitionLabel: "学费按身份和项目核对", ielts: 0, toefl: 0, languageNote: "中文授课为主，语言要求按招生简章核对。", majors: classicalMajors.concat(["Music Education"]), url: "https://music.tnua.edu.tw/" },
-  { id: "taipei-arts-music", name: "Taipei National University of the Arts Department of Music", nameCn: "台北艺术大学音乐学系", country: "中国台湾", region: "Asia", city: "Taipei", ranking: 106, rankingLabel: "亚洲艺术大学音乐申请校", tuitionUsd: 6000, tuitionLabel: "学费按身份和项目核对", ielts: 0, toefl: 0, languageNote: "中文授课为主，语言要求按招生简章核对。", majors: classicalMajors.concat(["Music Education"]), url: "https://music.tnua.edu.tw/" },
-{ id: "yonsei-music", name: "Yonsei University College of Music", nameCn: "延世大学音乐学院", country: "韩国", region: "Asia", city: "Seoul", ranking: 107, rankingLabel: "韩国综合大学音乐学院常见申请校", tuitionUsd: 11000, tuitionLabel: "国际生学费按专业核对", ielts: 6, toefl: 80, languageNote: "韩语或英语要求按项目核对，可能需要 TOPIK。", majors: classicalMajors.concat(["Composition"]), url: "https://music.yonsei.ac.kr/", institutionType: "University" },
+  { id: "yonsei-music", name: "Yonsei University College of Music", nameCn: "延世大学音乐学院", country: "韩国", region: "Asia", city: "Seoul", ranking: 107, rankingLabel: "韩国综合大学音乐学院常见申请校", tuitionUsd: 11000, tuitionLabel: "国际生学费按专业核对", ielts: 6, toefl: 80, languageNote: "韩语或英语要求按项目核对，可能需要 TOPIK。", majors: classicalMajors.concat(["Composition"]), url: "https://music.yonsei.ac.kr/", institutionType: "University" },
   { id: "hanyang-music", name: "Hanyang University College of Music", nameCn: "汉阳大学音乐学院", country: "韩国", region: "Asia", city: "Seoul", ranking: 108, rankingLabel: "韩国综合大学音乐学院常见申请校", tuitionUsd: 11000, tuitionLabel: "国际生学费按专业核对", ielts: 6, toefl: 80, languageNote: "韩语或英语要求按项目核对，可能需要 TOPIK。", majors: classicalMajors.concat(["Composition"]), url: "https://music.hanyang.ac.kr/", institutionType: "University" },
   { id: "nafa-music", name: "Nanyang Academy of Fine Arts School of Music", nameCn: "南洋艺术学院音乐学院 NAFA", country: "新加坡", region: "Asia", city: "Singapore", ranking: 109, rankingLabel: "新加坡艺术院校常见申请校", tuitionUsd: 16000, tuitionLabel: "国际生学费按 NAFA 课程核对", ielts: 5.5, toefl: 60, majors: commonMajors, selectivity: "medium", url: "https://www.nafa.edu.sg/courses/school-of-music" },
   { id: "lasalle-music", name: "LASALLE College of the Arts Music Programmes", nameCn: "拉萨尔艺术学院音乐项目", country: "新加坡", region: "Asia", city: "Singapore", ranking: 110, rankingLabel: "新加坡艺术院校常见申请校", tuitionUsd: 17000, tuitionLabel: "国际生学费按课程核对", ielts: 5.5, toefl: 60, majors: contemporaryMajors, selectivity: "medium", url: "https://www.lasalle.edu.sg/programmes/music" },
-  { id: "esmuc", lang: "spanish", name: "Escola Superior de Música de Catalunya", nameCn: "加泰罗尼亚高等音乐学院 ESMUC", country: "西班牙", region: "Europe", city: "Barcelona", ranking: 111, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 8000, tuitionLabel: "学费按身份和项目核对", ielts: 0, toefl: 0, languageNote: "西班牙语/加泰罗尼亚语/英语要求按项目核对。", majors: commonMajors, url: "https://www.esmuc.cat/en/studies/admission/" },
-  { id: "kug-graz", institutionType: "Conservatoire", lang: "german", name: "University of Music and Performing Arts Graz", nameCn: "格拉茨音乐与表演艺术大学 KUG", country: "奥地利", region: "Europe", city: "Graz", ranking: 112, rankingLabel: "奥地利专业音乐大学常见申请校", tuitionUsd: 1700, tuitionLabel: "公立大学学费较低，非 EU/EEA 按政策核对", ielts: 0, toefl: 0, languageNote: "德语/英语要求按项目和入学考试核对。", majors: commonMajors, url: "https://www.kug.ac.at/en/studies/admission" },
-  { id: "estonian-academy", lang: "estonian", name: "Estonian Academy of Music and Theatre", nameCn: "爱沙尼亚音乐与戏剧学院", country: "爱沙尼亚", region: "Europe", city: "Tallinn", ranking: 113, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 9000, tuitionLabel: "非 EU/EEA 学费按项目核对", ielts: 5.5, toefl: 72, majors: commonMajors, url: "https://eamt.ee/en/admissions/" },
-  { id: "prague-academy", lang: "czech", name: "Academy of Performing Arts in Prague Music and Dance Faculty", nameCn: "布拉格表演艺术学院音乐与舞蹈学院 HAMU", country: "捷克", region: "Europe", city: "Prague", ranking: 114, rankingLabel: "欧洲艺术学院常见申请校", tuitionUsd: 9000, tuitionLabel: "英语授课项目学费按专业核对", ielts: 5.5, toefl: 72, majors: classicalMajors.concat(["Jazz"]), url: "https://www.hamu.cz/en/admissions/" }
+  { id: "esmuc", name: "Escola Superior de Música de Catalunya", nameCn: "加泰罗尼亚高等音乐学院 ESMUC", country: "西班牙", lang: "spanish", region: "Europe", city: "Barcelona", ranking: 111, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 8000, tuitionLabel: "学费按身份和项目核对", ielts: 0, toefl: 0, languageNote: "西班牙语/加泰罗尼亚语/英语要求按项目核对。", majors: commonMajors, url: "https://www.esmuc.cat/en/studies/admission/" },
+  { id: "kug-graz", name: "University of Music and Performing Arts Graz", nameCn: "格拉茨音乐与表演艺术大学 KUG", country: "奥地利", institutionType: "Conservatoire", lang: "german", region: "Europe", city: "Graz", ranking: 112, rankingLabel: "奥地利专业音乐大学常见申请校", tuitionUsd: 1700, tuitionLabel: "公立大学学费较低，非 EU/EEA 按政策核对", ielts: 0, toefl: 0, languageNote: "德语/英语要求按项目和入学考试核对。", majors: commonMajors, url: "https://www.kug.ac.at/en/studies/admission" },
+  { id: "estonian-academy", name: "Estonian Academy of Music and Theatre", nameCn: "爱沙尼亚音乐与戏剧学院", country: "爱沙尼亚", lang: "estonian", region: "Europe", city: "Tallinn", ranking: 113, rankingLabel: "欧洲 conservatoire 常见申请校", tuitionUsd: 9000, tuitionLabel: "非 EU/EEA 学费按项目核对", ielts: 5.5, toefl: 72, majors: commonMajors, url: "https://eamt.ee/en/admissions/" },
+  { id: "prague-academy", name: "Academy of Performing Arts in Prague Music and Dance Faculty", nameCn: "布拉格表演艺术学院音乐与舞蹈学院 HAMU", country: "捷克", lang: "czech", region: "Europe", city: "Prague", ranking: 114, rankingLabel: "欧洲艺术学院常见申请校", tuitionUsd: 9000, tuitionLabel: "英语授课项目学费按专业核对", ielts: 5.5, toefl: 72, majors: classicalMajors.concat(["Jazz"]), url: "https://www.hamu.cz/en/admissions/" },
+  { id: "cuhk-music", name: "Chinese University of Hong Kong Department of Music", nameCn: "香港中文大学音乐系", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 37, rankingLabel: "香港综合大学音乐学院", tuitionUsd: 18600, tuitionLabel: "非本地生学费约 HKD 145k+ / 年，按课程核对", ielts: 6.5, toefl: 79, majors: commonMajors, url: "https://www.music.cuhk.edu.hk/", languageNote: "需达到大学整体英语要求，音乐理论/史论方向更侧重英文阅读能力。", institutionType: "University" },
+  { id: "hku-music", name: "University of Hong Kong Department of Music", nameCn: "香港大学音乐系", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 38, rankingLabel: "香港综合大学音乐学院", tuitionUsd: 22000, tuitionLabel: "非本地生学费约 HKD 171k+ / 年，按课程核对", ielts: 6.5, toefl: 93, majors: classicalMajors, url: "https://www.music.hku.hk/", languageNote: "英语教学为主，需满足大学入学英语要求。", institutionType: "University" },
+  { id: "hkbu-music", name: "Hong Kong Baptist University Department of Music", nameCn: "香港浸会大学音乐系", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 55, rankingLabel: "香港综合大学音乐学院", tuitionUsd: 18000, tuitionLabel: "非本地生学费约 HKD 140k+ / 年，按课程核对", ielts: 6, toefl: 79, majors: commonMajors, url: "https://mus.hkbu.edu.hk/", languageNote: "英语教学为主。", institutionType: "University" },
+  { id: "eduhk-music", name: "Education University of Hong Kong Department of Cultural and Creative Arts", nameCn: "香港教育大学文化与创意艺术学系（音乐）", country: "中国香港", region: "Asia", city: "Hong Kong", ranking: 70, rankingLabel: "香港教育大学创意艺术专业常见申请校", tuitionUsd: 18000, tuitionLabel: "非本地生学费约 HKD 140k+ / 年，按课程核对", ielts: 6, toefl: 80, majors: classicalMajors.concat(["Music Education"]), url: "https://www.eduhk.hk/", languageNote: "音乐教育方向为主，英语教学。", institutionType: "University" },
+  { id: "must-music", name: "Macau University of Science and Technology Faculty of Humanities and Arts", nameCn: "澳门科技大学人文艺术学院音乐学", country: "中国澳门", region: "Asia", city: "Macau", ranking: 100, rankingLabel: "澳门综合大学音乐申请校", tuitionUsd: 15000, tuitionLabel: "国际生学费约 MOP 120k+ / 年，按课程核对", ielts: 5.5, toefl: 72, majors: classicalMajors.concat(["Music Education"]), url: "https://www.must.edu.mo/", languageNote: "中文授课为主，部分课程英语授课。", institutionType: "University" },
 ].forEach(addSchool);
 
 function officialUrl(school) {
@@ -735,11 +739,14 @@ function scoreSchool(school, profile) {
  
    // European language scoring
    if (school.lang && profile.europeLang && profile.europeLang !== "Any") {
-   if (school.lang === profile.europeLang) {
-      score += 5;
-      reasons.push("授课语言匹配");
-    }
-  }
+     if (school.lang === profile.europeLang) {
+       score += 12;
+       reasons.push("授课语言匹配");
+     } else {
+       score -= 10;
+       cautions.push("授课语言不匹配");
+     }
+   }
 
   if (profile.gapNeeded) {
     if (school.gap === "friendly") {
@@ -832,7 +839,16 @@ function renderList(results) {
     state.selectedId = results[0].id;
   }
 
-  list.innerHTML = results
+  // In compact mode, put the selected school first; others keep match-order
+  let orderedResults = results;
+  if (state.focusDetail && state.selectedId) {
+    const idx = results.findIndex((s) => s.id === state.selectedId);
+    if (idx > 0) {
+      orderedResults = [results[idx], ...results.slice(0, idx), ...results.slice(idx + 1)];
+    }
+  }
+
+  list.innerHTML = orderedResults
     .map((school) => {
       const active = school.id === state.selectedId ? " active" : "";
       const compared = state.compare.has(school.id) ? "已加入" : "加入对比";
@@ -1077,16 +1093,55 @@ function refresh() {
       }
     });
   } else {
-    const fadePanels = [insightStrip, contentGrid];
-    if (refresh._fadeTimer) clearTimeout(refresh._fadeTimer);
-    fadePanels.forEach(el => { el.style.opacity = '0'; });
-    refresh._fadeTimer = setTimeout(() => {
-      doUpdate();
-      requestAnimationFrame(() => {
-        fadePanels.forEach(el => { el.style.opacity = '1'; });
+    if (state.focusDetail) {
+      // Compact mode: frosted-glass blur + FLIP list items
+      detail.style.transition = 'none';
+      detail.style.filter = 'blur(0px) opacity(1)';
+      const oldPositions = new Map();
+      list.querySelectorAll('.school-card').forEach(card => {
+        oldPositions.set(card.dataset.id, card.getBoundingClientRect().top);
       });
-      refresh._fadeTimer = null;
-    }, 700);
+      void detail.offsetHeight;
+      detail.style.transition = 'filter 0.8s ease, opacity 0.8s ease';
+      detail.style.filter = 'blur(32px) opacity(0.15)';
+      setTimeout(() => {
+        doUpdate();
+        requestAnimationFrame(() => {
+          detail.style.transition = 'filter 2.5s ease, opacity 2.5s ease';
+          detail.style.filter = 'blur(0px) opacity(1)';
+          requestAnimationFrame(() => {
+            list.querySelectorAll('.school-card').forEach(card => {
+              const oldTop = oldPositions.get(card.dataset.id);
+              if (oldTop !== undefined) {
+                const newRect = card.getBoundingClientRect();
+                const diff = oldTop - newRect.top;
+                if (Math.abs(diff) > 1) {
+                  card.style.transform = 'translateY(' + diff + 'px)';
+                  card.style.transition = 'none';
+                  requestAnimationFrame(() => {
+                    card.style.transition = 'transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    card.style.transform = 'translateY(0)';
+                    setTimeout(() => { card.style.transition = ''; card.style.transform = ''; }, 800);
+                  });
+                }
+              }
+            });
+          });
+        });
+      }, 250);
+    } else {
+      // Non-compact: existing fade
+      const fadePanels = [insightStrip, contentGrid];
+      if (refresh._fadeTimer) clearTimeout(refresh._fadeTimer);
+      fadePanels.forEach(el => { el.style.opacity = '0'; });
+      refresh._fadeTimer = setTimeout(() => {
+        doUpdate();
+        requestAnimationFrame(() => {
+          fadePanels.forEach(el => { el.style.opacity = '1'; });
+        });
+        refresh._fadeTimer = null;
+      }, 700);
+    }
   }
 
   // Capture original layout on first run (page load)
