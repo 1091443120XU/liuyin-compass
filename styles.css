@@ -520,8 +520,6 @@ legend {
   position: sticky;
   top: 22px;
   align-self: start;
-  max-height: calc(100vh - 44px);
-  overflow: auto;
   border-radius: 8px;
   padding: 26px;
   font-size: 1.02rem;
