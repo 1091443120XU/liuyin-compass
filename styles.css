@@ -227,11 +227,30 @@ legend {
   overflow-wrap: anywhere;
 }
 
-.source-note strong {
-  color: var(--ink);
-}
+ .source-note strong {
+   color: var(--ink);
+ }
 
-.results-panel {
+ 
+ /* ── Mobile filter toggle ── */
+ .mobile-filter-toggle {
+   display: none;
+ }
+ 
+ .mobile-filter-overlay {
+   display: none;
+ }
+
+/* ── Mobile detail overlay ── */
+.mobile-detail-overlay {
+  display: none;
+}
+ 
+ .mobile-detail-back {
+   display: none;
+ }
+
+ .results-panel {
   border-radius: 8px;
   min-height: calc(100vh - 44px);
   padding: 22px;
@@ -242,13 +261,17 @@ legend {
   flex-wrap: wrap;
 }
 
-.toolbar-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.ghost-button,
+ .toolbar-actions {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+ }
+ 
+ .mobile-toolbar-row {
+   display: none;
+ }
+ 
+ .ghost-button,
 .school-card button,
 .detail-panel a {
   border: 1px solid var(--ink);
@@ -769,3 +792,289 @@ th {
   }
 }
 
+/* =============================================
+   MOBILE LAYOUT (< 760px)
+   ============================================= */
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 0;
+  }
+
+  .workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 100%;
+  }
+
+  .workspace.detail-focus {
+    grid-template-columns: none;
+  }
+
+  .profile-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 82vw;
+    max-width: 340px;
+    height: 100vh;
+    min-height: 100vh;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 18px;
+    transform: translateX(-105%);
+    transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    box-shadow: 6px 0 30px rgba(0,0,0,0.12);
+  }
+
+  .profile-panel.open {
+    transform: translateX(0);
+  }
+
+  .mobile-filter-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(23, 33, 31, 0.42);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms ease;
+  }
+
+  .mobile-filter-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid var(--jade);
+    border-radius: 8px;
+    background: var(--jade);
+    color: #fffdf7;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .mobile-toolbar-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .mobile-toolbar-row select {
+    flex: 1;
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 0.9rem;
+    background: #fffdf7;
+  }
+
+  .results-panel {
+    border-radius: 0;
+    min-height: 100vh;
+    padding: 14px;
+    border: none;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .toolbar-actions select {
+    display: none;
+  }
+
+  .insight-strip {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    grid-template-columns: none;
+  }
+
+  .insight-strip .stat {
+    flex: 0 0 140px;
+    scroll-snap-align: start;
+    min-width: 140px;
+  }
+
+  .content-grid {
+    display: block;
+    grid-template-columns: none;
+    gap: 0;
+  }
+
+  .content-grid.detail-focus {
+    grid-template-columns: none;
+  }
+
+  .school-list {
+    gap: 10px;
+  }
+
+  .school-card {
+    padding: 14px;
+  }
+
+  .school-card.active {
+    padding: 12px;
+    border-width: 3px;
+  }
+
+  .school-card.active::before {
+    left: -3px;
+  }
+
+  .school-card header {
+    align-items: flex-start;
+  }
+
+  .school-card h3 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .school-card .meta-row {
+    display: none;
+  }
+
+  .school-card .fit-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .school-card .fit-reasons {
+    font-size: 0.82rem;
+    max-width: 100%;
+  }
+
+  .card-actions button {
+    min-height: 40px;
+    flex: 1;
+    font-size: 0.85rem;
+  }
+
+  .score-badge {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    font-size: 0.82rem;
+    box-shadow: inset 0 0 0 7px #fffdf7;
+  }
+
+  .subline {
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+
+  .compact-list .school-card h3 {
+    font-size: 0.85rem;
+  }
+
+  .detail-panel {
+    display: none;
+  }
+
+  .detail-panel.mobile-open {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 22px 18px;
+    border: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation: mobileDetailIn 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes mobileDetailIn {
+    from { transform: translateX(100%); opacity: 0.6; }
+    to   { transform: translateX(0); opacity: 1; }
+  }
+
+  .detail-panel.mobile-closing {
+    animation: mobileDetailOut 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes mobileDetailOut {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(100%); opacity: 0.6; }
+  }
+
+  .mobile-detail-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 299;
+    background: rgba(23, 33, 31, 0.42);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 350ms ease;
+  }
+
+  .mobile-detail-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: transparent;
+    color: var(--jade);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+
+  .detail-panel .expand-list-button {
+    display: none !important;
+  }
+
+  dialog {
+    width: calc(100% - 12px);
+    padding: 16px;
+    margin: 6px;
+    max-height: 90vh;
+  }
+
+  table {
+    min-width: 520px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 0.82rem;
+  }
+
+  .compare-table {
+    margin: 0 -8px;
+  }
+}

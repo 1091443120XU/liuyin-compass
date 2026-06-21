@@ -113,7 +113,18 @@
           </div>
         </aside>
 
-        <section class="results-panel" aria-live="polite">
+         <section class="results-panel" aria-live="polite">
+           <div class="mobile-toolbar-row">
+             <button id="mobileFilterToggle" type="button" class="mobile-filter-toggle">筛选</button>
+             <select id="mobileSortBy" aria-label="排序">
+               <option value="score">按匹配度</option>
+               <option value="rank">按排名</option>
+               <option value="tuition">按学费</option>
+               <option value="language">按语言门槛</option>
+             </select>
+           </div>
+           <div class="mobile-filter-overlay" id="mobileFilterOverlay"></div>
+           <div class="mobile-detail-overlay" id="mobileDetailOverlay"></div>
           <header class="toolbar">
             <div>
               <p class="eyebrow">School Matcher</p>

@@ -866,9 +866,10 @@ function renderList(results) {
 function renderDetail(school) {
   if (!school) return;
   detail.className = "detail-panel";
-  detail.innerHTML = `
-    <button id="expandListButton" type="button" class="ghost-button expand-list-button" ${state.focusDetail ? "" : "hidden"}>展开列表</button>
-    <div class="detail-head">
+ detail.innerHTML = `
+   <button id="expandListButton" type="button" class="ghost-button expand-list-button" ${state.focusDetail ? "" : "hidden"}>展开列表</button>
+   <button id="mobileDetailBack" type="button" class="mobile-detail-back">← 返回列表</button>
+   <div class="detail-head">
       <div>
         <p class="eyebrow">${school.country} · ${school.city}</p>
         <h3>${school.nameCnClean}</h3>
@@ -1109,19 +1110,29 @@ list.addEventListener("click", (event) => {
     return;
   }
 
-  if (button?.dataset.action === "detail") {
-    state.selectedId = button.dataset.id;
-    state.focusDetail = true;
-    refresh();
-    return;
-  }
+ if (button?.dataset.action === "detail") {
+   state.selectedId = button.dataset.id;
+   state.focusDetail = true;
+   const isMobile = window.innerWidth <= 760;
+   if (isMobile) {
+     state.focusDetail = false;
+     showMobileDetail();
+   }
+   refresh();
+   return;
+ }
 
   const id = button?.dataset.id || card?.dataset.id;
-  if (id) {
-    state.selectedId = id;
-    state.focusDetail = true;
-    refresh();
-  }
+ if (id) {
+   state.selectedId = id;
+   state.focusDetail = true;
+   const isMobile = window.innerWidth <= 760;
+   if (isMobile) {
+     state.focusDetail = false;
+     showMobileDetail();
+   }
+   refresh();
+ }
 });
 
 detail.addEventListener("click", (event) => {
@@ -1153,3 +1164,83 @@ budget.addEventListener("input", () => {
 });
 
 refresh();
+
+/* ── Mobile helpers ── */
+function showMobileDetail() {
+  const overlay = document.getElementById('mobileDetailOverlay');
+  if (!overlay) return;
+  detail.classList.remove('mobile-closing');
+  overlay.classList.add('open');
+  detail.classList.add('mobile-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideMobileDetail() {
+  const overlay = document.getElementById('mobileDetailOverlay');
+  if (!overlay) return;
+  detail.classList.add('mobile-closing');
+  overlay.classList.remove('open');
+  setTimeout(() => {
+    detail.classList.remove('mobile-open', 'mobile-closing');
+    document.body.style.overflow = '';
+  }, 400);
+}
+
+/* ── Mobile filter toggle ── */
+const mobileFilterToggle = document.getElementById('mobileFilterToggle');
+const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
+const profilePanel = document.querySelector('.profile-panel');
+
+function openMobileFilter() {
+  profilePanel.classList.add('open');
+  mobileFilterOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileFilter() {
+  profilePanel.classList.remove('open');
+  mobileFilterOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+if (mobileFilterToggle) {
+  mobileFilterToggle.addEventListener('click', openMobileFilter);
+}
+
+if (mobileFilterOverlay) {
+  mobileFilterOverlay.addEventListener('click', closeMobileFilter);
+}
+
+/* ── Mobile sort by ── */
+const mobileSortBy = document.getElementById('mobileSortBy');
+if (mobileSortBy) {
+  mobileSortBy.addEventListener('change', () => {
+    sortBy.value = mobileSortBy.value;
+    refresh();
+  });
+}
+
+/* Keep mobile sort in sync */
+/* ── Mobile detail close via overlay tap ── */
+const mobileDetailOverlay = document.getElementById('mobileDetailOverlay');
+if (mobileDetailOverlay) {
+  mobileDetailOverlay.addEventListener('click', hideMobileDetail);
+}
+
+/* ── Mobile detail back button ── */
+document.addEventListener('click', (event) => {
+  const backBtn = event.target.closest('#mobileDetailBack');
+  if (backBtn) {
+    hideMobileDetail();
+  }
+});
+
+/* ── Sync desktop sort → mobile sort ── */
+sortBy.addEventListener('change', function() {
+  if (mobileSortBy) mobileSortBy.value = this.value;
+});
+
+/* Sync on initial load */
+if (mobileSortBy) {
+  mobileSortBy.value = sortBy.value;
+}
