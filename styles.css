@@ -517,9 +517,6 @@ legend {
 }
 
 .detail-panel {
-  position: sticky;
-  top: 22px;
-  align-self: start;
   border-radius: 8px;
   padding: 26px;
   font-size: 1.02rem;
