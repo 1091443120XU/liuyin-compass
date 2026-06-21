@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>留音 Compass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Serif+SC:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260618-layout3" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="profile-panel" aria-label="学生信息筛选">
+          <div class="brand-lockup">
+            <div class="brand-mark" aria-hidden="true">LC</div>
+            <div>
+              <p class="eyebrow">Music Study Abroad</p>
+              <h1>留音<br>Compass</h1>
+            </div>
+          </div>
+
+          <form id="studentForm" class="filter-form">
+            <label>
+              申请阶段
+              <select name="degree" id="degree">
+                <option value="Bachelor">本科 Bachelor</option>
+                <option value="Master">硕士 Master</option>
+                <option value="Diploma">文凭 / Artist Diploma</option>
+                <option value="Gap">Gap / Foundation</option>
+              </select>
+            </label>
+
+            <label>
+              主修方向
+              <select name="major" id="major">
+                <option value="Piano">钢琴</option>
+                <option value="Violin">小提琴</option>
+                <option value="Voice">声乐</option>
+                <option value="Composition">作曲</option>
+                <option value="Jazz">爵士</option>
+                <option value="Music Production">音乐制作</option>
+                <option value="Conducting">指挥</option>
+                <option value="Music Education">音乐教育</option>
+              </select>
+            </label>
+
+            <label>
+              目标地区
+              <select name="region" id="region">
+                <option value="Any">不限地区</option>
+                <option value="US">美国</option>
+                <option value="UK">英国</option>
+                <option value="Europe">欧洲大陆</option>
+                <option value="Canada">加拿大</option>
+                <option value="Asia">亚洲</option>
+                <option value="Oceania">澳新</option>
+              </select>
+            </label>
+
+            <label>
+              学校类型
+              <select name="institutionType" id="institutionType">
+                <option value="Any">不限类型</option>
+                <option value="Conservatoire">音乐学院 / 专门艺术院校</option>
+                <option value="University">综合类大学音乐学院</option>
+              </select>
+            </label>
+
+            <div class="range-field">
+              <div>
+                <span>年度学费预算</span>
+                <output id="budgetOutput">$60k</output>
+              </div>
+              <input type="range" id="budget" name="budget" min="0" max="100000" step="5000" value="60000" />
+            </div>
+
+            <div class="score-grid">
+              <label>
+                IELTS
+                <input id="ielts" name="ielts" type="number" min="0" max="9" step="0.5" value="6.5" />
+              </label>
+              <label>
+                GPA / 100
+                <input id="gpa" name="gpa" type="number" min="0" max="100" step="1" value="85" />
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>申请偏好</legend>
+              <label class="check-row">
+                <input type="checkbox" id="gapNeeded" name="gapNeeded" />
+                需要 Gap / 作品集准备友好路径
+              </label>
+              <label class="check-row">
+                <input type="checkbox" id="scholarship" name="scholarship" />
+                优先考虑奖学金或低学费
+              </label>
+              <label class="check-row">
+                <input type="checkbox" id="prescreenReady" name="prescreenReady" checked />
+                已准备预筛视频 / 作品集
+              </label>
+            </fieldset>
+          </form>
+
+          <div class="source-note">
+            <strong>数据版本</strong>
+            <span>2026-06-05 扩展种子库。专业入口优先跳转官网课程页，缺少细分页时跳转官网招生页。</span>
+          </div>
+        </aside>
+
+        <section class="results-panel" aria-live="polite">
+          <header class="toolbar">
+            <div>
+              <p class="eyebrow">School Matcher</p>
+              <h2>院校筛选与推荐</h2>
+            </div>
+            <div class="toolbar-actions">
+              <button id="compareButton" type="button" class="ghost-button">对比清单 <span id="compareCount">0</span></button>
+              <select id="sortBy" aria-label="排序">
+                <option value="score">按匹配度</option>
+                <option value="rank">按排名</option>
+                <option value="tuition">按学费</option>
+                <option value="language">按语言门槛</option>
+              </select>
+            </div>
+          </header>
+
+          <div class="insight-strip" id="insightStrip"></div>
+
+          <div class="content-grid">
+            <section class="school-list" id="schoolList" aria-label="推荐院校列表"></section>
+
+            <aside class="detail-panel" id="detailPanel" aria-label="院校详情"></aside>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="compareDialog">
+      <div class="dialog-header">
+        <h3>对比清单</h3>
+        <button id="closeCompare" type="button" aria-label="关闭">×</button>
+      </div>
+      <div id="compareTable" class="compare-table"></div>
+    </dialog>
+
+    <script src="./app.js?v=20260618-layout3"></script>
+  </body>
+</html>
