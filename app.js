@@ -407,6 +407,34 @@ const schools = [
 const commonMajors = ["Piano", "Violin", "Voice", "Composition", "Jazz", "Music Production", "Conducting", "Music Education"];
 const classicalMajors = ["Piano", "Violin", "Voice", "Composition", "Conducting", "Music Education"];
 const contemporaryMajors = ["Jazz", "Music Production", "Composition", "Voice", "Piano", "Music Education"];
+
+// 攻读门类 → 专业方向 映射
+const categorySpecs = {
+  Musicology:     { label: "音乐学",          specs: ["Musicology","MusicEducation","MusicTherapy","MusicHistory"] },
+  VocalPerformance: { label: "音乐表演（声乐）",  specs: ["PopVocals","ClassicalVocals","Drama","Musical"] },
+  InstrumentalPerformance: { label: "音乐表演（器乐）", specs: ["Keyboard","Strings","Woodwinds","Brass","Percussion","Conducting"] },
+  MusicTech:      { label: "音乐科技与应用",    specs: ["MusicProduction","Composition","SoundDesign"] },
+  ArtsManagement: { label: "艺术管理",         specs: ["StageManagement","TheatreManagement"] }
+};
+
+// 专业方向显示标签
+const specLabels = {
+  Musicology:"音乐学", MusicEducation:"音乐教育", MusicTherapy:"音乐治疗", MusicHistory:"音乐史",
+  PopVocals:"流行演唱", ClassicalVocals:"古典演唱", Drama:"戏剧", Musical:"音乐剧",
+  Keyboard:"键盘", Strings:"弦乐", Woodwinds:"木管", Brass:"铜管", Percussion:"打击乐",
+  Conducting:"指挥", MusicProduction:"音乐制作", Composition:"作曲", SoundDesign:"声音设计",
+  StageManagement:"舞台管理", TheatreManagement:"剧场管理"
+};
+
+// 专业方向 → 旧版主修名（用于学校匹配）
+const specToOld = {
+  Musicology:[], MusicEducation:["Music Education"], MusicTherapy:[], MusicHistory:[],
+  PopVocals:["Voice","Jazz"], ClassicalVocals:["Voice"], Drama:[], Musical:[],
+  Keyboard:["Piano"], Strings:["Violin"], Woodwinds:[], Brass:[], Percussion:[], Conducting:["Conducting"],
+  MusicProduction:["Music Production"], Composition:["Composition"], SoundDesign:[],
+  StageManagement:[], TheatreManagement:[]
+};
+
 const majorLabels = {
   Piano: "钢琴",
   Violin: "小提琴",
@@ -415,7 +443,12 @@ const majorLabels = {
   Jazz: "爵士",
   "Music Production": "音乐制作",
   Conducting: "指挥",
-  "Music Education": "音乐教育"
+  "Music Education": "音乐教育",
+  // 攻读门类专业方向标签
+  Musicology:"音乐学", MusicTherapy:"音乐治疗", MusicHistory:"音乐史",
+  PopVocals:"流行演唱", ClassicalVocals:"古典演唱", Drama:"戏剧", Musical:"音乐剧",
+  Keyboard:"键盘", Strings:"弦乐", Woodwinds:"木管", Brass:"铜管", Percussion:"打击乐",
+  SoundDesign:"声音设计", StageManagement:"舞台管理", TheatreManagement:"剧场管理"
 };
 const directUniversitySignals = [
   "University of Rochester",
@@ -666,6 +699,7 @@ const closeCompare = document.querySelector("#closeCompare");
 
 function getProfile() {
   return {
+    category: form.category ? form.category.value : "Any",
     degree: form.degree.value,
     major: form.major.value,
     region: form.region.value,
@@ -705,9 +739,21 @@ function scoreSchool(school, profile) {
     cautions.push("该阶段不在种子库项目内");
   }
 
-  if (school.majors.includes(profile.major)) {
+  // 攻读门类 + 专业方向匹配
+  let majorMatch = false;
+  const m = profile.major;
+  if (m !== "Any") {
+    if (school.majors.includes(m)) {
+      majorMatch = true;
+    } else if (specToOld[m]) {
+      majorMatch = specToOld[m].some(old => school.majors.includes(old));
+    }
+  } else {
+    majorMatch = true;
+  }
+  if (majorMatch) {
     score += 18;
-    reasons.push("主修方向匹配");
+    reasons.push("专业方向匹配");
   } else {
     score -= 22;
     cautions.push("主修覆盖度弱");
@@ -1156,6 +1202,29 @@ function refresh() {
 
 form.addEventListener("input", refresh);
 sortBy.addEventListener("change", refresh);
+
+/* ── 攻读门类 → 专业方向 联动 ── */
+function updateMajorOptions() {
+  const cat = document.getElementById('category').value;
+  const sel = document.getElementById('major');
+  const prev = sel.value;
+  sel.innerHTML = '<option value=\"Any\">不限方向</option>';
+  if (cat !== "Any" && categorySpecs[cat]) {
+    categorySpecs[cat].specs.forEach(function(s) {
+      var o = document.createElement('option');
+      o.value = s;
+      o.textContent = specLabels[s] || s;
+      sel.appendChild(o);
+    });
+  }
+  if ([].slice.call(sel.options).some(function(o) { return o.value === prev; })) sel.value = prev;
+}
+
+var categoryEl = document.getElementById('category');
+if (categoryEl) {
+  categoryEl.addEventListener('change', updateMajorOptions);
+  updateMajorOptions();
+}
 
 list.addEventListener("click", (event) => {
   const button = event.target.closest("button");

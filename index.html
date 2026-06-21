@@ -30,21 +30,27 @@
               <select name="degree" id="degree">
                 <option value="Bachelor">本科 Bachelor</option>
                 <option value="Master">硕士 Master</option>
-                <option value="Diploma">艺术家文凭</option>
+                <option value="Diploma">艺术家文凭 Artist Diploma</option>
               </select>
             </label>
 
             <label>
-              主修方向
+              攻读门类
+              <select name="category" id="category">
+                <option value="Any">不限门类</option>
+                <option value="Musicology">音乐学</option>
+                <option value="VocalPerformance">音乐表演（声乐）</option>
+                <option value="InstrumentalPerformance">音乐表演（器乐）</option>
+                <option value="MusicTech">音乐科技与应用</option>
+                <option value="ArtsManagement">艺术管理</option>
+              </select>
+            </label>
+
+            <label>
+              专业方向
               <select name="major" id="major">
-                <option value="Piano">钢琴</option>
-                <option value="Violin">小提琴</option>
-                <option value="Voice">声乐</option>
-                <option value="Composition">作曲</option>
-                <option value="Jazz">爵士</option>
-                <option value="Music Production">音乐制作</option>
-                <option value="Conducting">指挥</option>
-                <option value="Music Education">音乐教育</option>
+                <option value="Any">不限方向</option>
+                <!-- options populated by JS based on 攻读门类 -->
               </select>
             </label>
 
@@ -178,6 +184,6 @@
       <div id="compareTable" class="compare-table"></div>
     </dialog>
 
-    <script src="./app.js?v=1782053927"></script>
+    <script src="./app.js?v=1782061580"></script>
   </body>
 </html>
