@@ -1220,7 +1220,6 @@ sortBy.addEventListener("change", refresh);
 function updateMajorOptions() {
   const cat = document.getElementById('category').value;
   const sel = document.getElementById('major');
-  const prev = sel.value;
   sel.innerHTML = '<option value=\"Any\">不限方向</option>';
   if (cat !== "Any" && categorySpecs[cat]) {
     categorySpecs[cat].specs.forEach(function(s) {
@@ -1229,8 +1228,9 @@ function updateMajorOptions() {
       o.textContent = specLabels[s] || s;
       sel.appendChild(o);
     });
+    // Auto-select first sub-specialization so instrument cascade triggers
+    sel.value = categorySpecs[cat].specs[0];
   }
-  if ([].slice.call(sel.options).some(function(o) { return o.value === prev; })) sel.value = prev;
   updateInstrumentOptions();
 }
 
