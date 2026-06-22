@@ -448,7 +448,11 @@ const majorLabels = {
   Musicology:"音乐学", MusicTherapy:"音乐治疗", MusicHistory:"音乐史",
   PopVocals:"流行演唱", ClassicalVocals:"古典演唱", Drama:"戏剧", Musical:"音乐剧",
   Keyboard:"键盘", Strings:"弦乐", Woodwinds:"木管", Brass:"铜管", Percussion:"打击乐",
-  SoundDesign:"声音设计", StageManagement:"舞台管理", TheatreManagement:"剧场管理"
+  SoundDesign:"声音设计", StageManagement:"舞台管理", TheatreManagement:"剧场管理",
+  PopKeyboard:"流行键盘", ClassicalKeyboard:"古典键盘",
+  Viola:"中提琴", Cello:"大提琴", DoubleBass:"低音提琴", Guitar:"吉他",
+  FlutePiccolo:"长笛、短笛", Oboe:"双簧管", Clarinet:"单簧管", Saxophone:"萨克斯", Bassoon:"巴松",
+  Trumpet:"小号", Horn:"圆号", Trombone:"长号", Tuba:"大号"
 };
 const directUniversitySignals = [
   "University of Rochester",
@@ -700,6 +704,7 @@ const closeCompare = document.querySelector("#closeCompare");
 function getProfile() {
   return {
     category: form.category ? form.category.value : "Any",
+    instrument: form.instrument ? form.instrument.value : "Any",
     degree: form.degree.value,
     major: form.major.value,
     region: form.region.value,
@@ -739,14 +744,22 @@ function scoreSchool(school, profile) {
     cautions.push("该阶段不在种子库项目内");
   }
 
-  // 攻读门类 + 专业方向匹配
+  // 攻读门类 + 专业方向 + 乐器匹配
   let majorMatch = false;
   const m = profile.major;
+  const inst = profile.instrument;
   if (m !== "Any") {
-    if (school.majors.includes(m)) {
-      majorMatch = true;
-    } else if (specToOld[m]) {
-      majorMatch = specToOld[m].some(old => school.majors.includes(old));
+    // Check instrument-level match first
+    if (inst && inst !== "Any" && instrumentToOld[inst]) {
+      majorMatch = instrumentToOld[inst].some(function(o) { return school.majors.includes(o); });
+    }
+    // Fall back to specialization-level match
+    if (!majorMatch) {
+      if (school.majors.includes(m)) {
+        majorMatch = true;
+      } else if (specToOld[m]) {
+        majorMatch = specToOld[m].some(function(old) { return school.majors.includes(old); });
+      }
     }
   } else {
     majorMatch = true;
@@ -1218,12 +1231,38 @@ function updateMajorOptions() {
     });
   }
   if ([].slice.call(sel.options).some(function(o) { return o.value === prev; })) sel.value = prev;
+  updateInstrumentOptions();
+}
+
+/* ── 专业方向 → 具体乐器/方向 联动 ── */
+function updateInstrumentOptions() {
+  var major = document.getElementById('major').value;
+  var label = document.getElementById('instrumentLabel');
+  var sel = document.getElementById('instrument');
+  var prev = sel.value;
+  sel.innerHTML = '<option value=\"Any\">不限</option>';
+  if (instrumentSpecs[major]) {
+    label.style.display = '';
+    instrumentSpecs[major].items.forEach(function(s) {
+      var o = document.createElement('option');
+      o.value = s;
+      o.textContent = instrumentLabels[s] || s;
+      sel.appendChild(o);
+    });
+  } else {
+    label.style.display = 'none';
+  }
+  if ([].slice.call(sel.options).some(function(o) { return o.value === prev; })) sel.value = prev;
 }
 
 var categoryEl = document.getElementById('category');
 if (categoryEl) {
   categoryEl.addEventListener('change', updateMajorOptions);
   updateMajorOptions();
+}
+var majorEl = document.getElementById('major');
+if (majorEl) {
+  majorEl.addEventListener('change', updateInstrumentOptions);
 }
 
 list.addEventListener("click", (event) => {
