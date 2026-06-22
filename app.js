@@ -1258,8 +1258,8 @@ function updateInstrumentOptions() {
 var categoryEl = document.getElementById('category');
 if (categoryEl) {
   categoryEl.addEventListener('change', updateMajorOptions);
-  updateMajorOptions();
 }
+// Note: NOT calling updateMajorOptions() on init to avoid blank-page issue
 var majorEl = document.getElementById('major');
 if (majorEl) {
   majorEl.addEventListener('change', updateInstrumentOptions);
