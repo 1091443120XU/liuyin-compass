@@ -435,6 +435,25 @@ const specToOld = {
   StageManagement:[], TheatreManagement:[]
 };
 
+const instrumentSpecs = {
+  Keyboard:  { label:"键盘", items:["PopKeyboard","ClassicalKeyboard"] },
+  Strings:   { label:"弦乐", items:["Violin","Viola","Cello","DoubleBass","Guitar"] },
+  Woodwinds: { label:"木管", items:["FlutePiccolo","Oboe","Clarinet","Saxophone","Bassoon"] },
+  Brass:     { label:"铜管", items:["Trumpet","Horn","Trombone","Tuba"] }
+};
+const instrumentLabels = {
+  PopKeyboard:"流行键盘", ClassicalKeyboard:"古典键盘",
+  Violin:"小提琴", Viola:"中提琴", Cello:"大提琴", DoubleBass:"低音提琴", Guitar:"吉他",
+  FlutePiccolo:"长笛、短笛", Oboe:"双簧管", Clarinet:"单簧管", Saxophone:"萨克斯", Bassoon:"巴松",
+  Trumpet:"小号", Horn:"圆号", Trombone:"长号", Tuba:"大号"
+};
+const instrumentToOld = {
+  PopKeyboard:["Piano"], ClassicalKeyboard:["Piano"],
+  Violin:["Violin"], Viola:["Violin"], Cello:[], DoubleBass:[], Guitar:[],
+  FlutePiccolo:[], Oboe:[], Clarinet:[], Saxophone:[], Bassoon:[],
+  Trumpet:[], Horn:[], Trombone:[], Tuba:[]
+};
+
 const majorLabels = {
   Piano: "钢琴",
   Violin: "小提琴",
